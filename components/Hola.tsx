@@ -27,7 +27,7 @@ const Hola = () => {
 
   return (
     <View>
-      <Text>Hola</Text>
+      <Text>{saludo}</Text>
     </View>
   )
 }
