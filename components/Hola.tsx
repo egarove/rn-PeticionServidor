@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Post } from '../entities/Post';
 import { ServerPost } from '../entities/mappers/ServerPost';
 import { PostMapper } from '../entities/mappers/PostMapper';
+import { MapperManager } from '../entities/mappers/MapperManager';
 
 const Hola = () => {
 
@@ -16,7 +17,7 @@ const Hola = () => {
         (datos) => {
           datos.json().then(
             (datos: ServerPost[]) => {
-              setDatos(PostMapper.toPost(datos));
+              setDatos(MapperManager.convertFromServerPost(datos, 'post'));
               setSaludo("Los datos se han leido correctamente");
               setLoading(false);
             }
